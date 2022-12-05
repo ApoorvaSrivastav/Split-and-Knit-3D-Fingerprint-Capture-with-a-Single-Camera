@@ -1,1 +1,363 @@
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="width=device-width, initial-scale=1">
+    <meta name="description" content="LoFTR can extract high-quality semi-dense matches even in indistinctive regions with low-textures, motion blur, or repetitive patterns. Accepted in CVPR 2021."/>
+    <title>LoFTR: Detector-Free Local Feature Matching with Transformers</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">
+    <style>
+      body {
+        background: #fdfcf9 no-repeat fixed top left;
+        font-family:'Open Sans', sans-serif;
+      }
+    </style>
+
+  </head>
+
+  <!-- cover -->
+  <section>
+    <div class="jumbotron text-center mt-0">
+      <div class="container">
+        <div class="row">
+          <div class="col">
+            <h2>LoFTR: Detector-Free Local Feature Matching with Transformers</h2>
+            <h4 style="color:#6e6e6e;"> CVPR 2021 </h4>
+            <hr>
+            <h6> <a href="https://jiamingsun.ml/" target="_blank">Jiaming Sun</a><sup>1,2*</sup>, 
+                 <a href="https://zehongs.github.io/" target="_blank">Zehong Shen</a><sup>1*</sup>, 
+                 <a href="https://github.com/angshine" target="_blank">Yuang Wang</a><sup>1*</sup>, 
+                <a href="http://www.cad.zju.edu.cn/bao/" target="_blank">Hujun Bao</a><sup>1</sup>,
+                <a href="http://xzhou.me" target="_blank">Xiaowei Zhou</a><sup>1</sup></h6>
+            <p> <sup>1</sup>State Key Lab of CAD & CG, Zhejiang University &nbsp;&nbsp; 
+                <sup>2</sup>SenseTime Research
+                <br>
+                <sup>*</sup> denotes equal contribution
+            </p>
+            <!-- <p> <a class="btn btn-secondary btn-lg" href="" role="button">Paper</a> 
+                <a class="btn btn-secondary btn-lg" href="" role="button">Code</a> 
+                <a class="btn btn-secondary btn-lg" href="" role="button">Data</a> </p> -->
+
+            <div class="row justify-content-center">
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/pdf/2104.00680.pdf" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> Paper</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" id="code_soon" href="https://github.com/zju3dv/LoFTR" role="button" 
+                    target="_blank" disabled=1>
+                <i class="fa fa-github-alt"></i> Code </a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="files/LoFTR-suppmat.pdf" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> Supplementary</a> </p>
+              </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="files/LoFTR_IMC21.pdf" role="button"  target="_blank">
+                    <i class="fa fa-file"></i> IMC-Report </a> </p>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- abstract -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+          <h3>Abstract</h3>
+            <hr style="margin-top:0px">
+            <h6 style="color:#8899a5" class="text-center"> 
+              TL;DR: LoFTR can extract high-quality semi-dense matches even in indistinctive regions with low-textures, motion blur, or repetitive patterns.
+            </h6>
+              <br>
+            <video id="demo" width="75%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                  <source src="images/loftr-homepage-demo.mp4" type="video/mp4">
+            </video>
+            <div><b style="color:#fd5638; font-size:large" id="demo-warning"></b>
+              <br>
+              <br>
+          <p class="text-justify">
+            We present a novel method for local image feature matching.  Instead of performing image feature detection, description, and matching sequentially,  we propose to first establish pixel-wise dense matches at a coarse level and later refine the good matches at a fine level. In contrast to dense methods that use cost volume to search correspondences,  we use self and cross attention layers in Transformers to obtain feature descriptors that are conditioned on both images. The global receptive field provided by Transformers enables our method to produce dense matches in low-texture areas,  where feature detectors usually struggle to produce repeatable interest points. The experiments on indoor and outdoor datasets show that LoFTR outperforms state-of-the-art methods by a large margin.  
+            LoFTR also ranks first on two public benchmarks of visual localization among the published methods.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- demo video -->
+  <!-- <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Matches on ScanNet-756</h3>
+            <hr style="margin-top:0px">
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" controls="" id="scannet_vid">
+              <source src="images/loftr_scene0756_00_slow.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>   -->
+
+  <!-- overview video -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Overview video (5 min)</h3>
+            <hr style="margin-top:0px">
+            <div class="embed-responsive embed-responsive-16by9"> -->
+                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/ep015Dda0T0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+
+  <!-- pipeline -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Pipeline overview</h3>
+            <hr style="margin-top:0px">
+            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
+                <!-- <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/EpmnpwwaR14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
+            <!-- </div> -->
+                <img class="img-fluid" src="images/loftr-arch.png" alt="LoFTR Architechture">
+            <hr>
+            <p class="text-justify">
+              LoFTR has four components:
+              \(\textbf{1.}\) A local feature CNN extracts
+              the coarse-level feature maps 
+              $\tilde{F}^A$ and $\tilde{F}^B$,
+              together with the fine-level feature maps 
+              $\hat{F}^A$ and $\hat{F}^B$
+              from the image pair $I^A$ and $I^B$.
+              \(\textbf{2.}\)  The coarse feature maps are flattened to 1-D vectors and added with the
+              positional encoding.
+              The added features are then processed by the Local Feature TRansformer (LoFTR) module, which has $N_c$ self-attention and cross-attention layers.
+              \(\textbf{3.}\) A differentiable matching layer is used to match the transformed features, which ends up with a confidence matrix $\mathcal{P}_c$. 
+              The matches in $\mathcal{P}_c$ are selected according to the confidence threshold and mutual-nearest-neighbor criteria, 
+              yielding the coarse-level match prediction $\mathcal{M}_c$.
+              \(\textbf{4.}\) For every selected coarse prediction $(\tilde{i}, \tilde{j}) \in \mathcal{M}_c$,
+              a local window with size $w\times w$ is cropped from the fine-level feature map.
+              Coarse matches will be refined within this local window to a sub-pixel level as the final match prediction $\mathcal{M}_f$.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- demo video with orig -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Matches on a low-texture area</h3>
+            <!-- <h3>Matches on </h3> -->
+            <p class="text-left"> 
+              Data is captured using an iPhone, color indicates the match confidence.</p>
+          <hr style="margin-top:0px">
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" controls="" id="inspect_vid">
+              <source src="images/loftr-matches-compare.mp4" type="video/mp4">
+            </video>
+        </div>
+      </div>
+      <br>
+      <div class="row justify-content-center">
+        <div class="column">
+            <p class="mb-5"><a class="btn btn-large btn-light" role="button"  onclick="changePlaybackSpeed(0.125)"
+              target="_blank" disabled=1>
+          <i class="fa "></i> <span style="color:#ffffff;">0.5x speed</span></a> </p>
+        </div>
+        <div class="column">
+            <p class="mb-5"><a class="btn btn-large btn-light" role="button" onclick="changePlaybackSpeed(0.5)"
+              target="_blank" disabled=1>
+          <i class="fa fa-github-alt"></i> <span style="color:#ffffff;">2x speed</span></a> </p>
+        </div>
+        <br>
+        <br>
+    </div>
+  </section>
+  <br>  
+
+  <!-- compare -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Qualitative comparison with <a href="https://psarlin.com/superglue">SuperGlue</a></h3>
+            <hr style="margin-top:0px">
+            <p class="text-justify">
+              Data is captured using an iPhone, color indicates the match confidence.
+            </p>
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" controls="" id="compare_vid">
+              <source src="images/loftr_spg_compare.mp4" type="video/mp4">
+            </video>
+            <!-- <div class="embed-responsive embed-responsive-16by9"> -->
+                <!-- <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/EpmnpwwaR14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
+            <!-- </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- feature visualization -->
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Visualizations on the attention weights and the transformed features in LoFTR</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="images/feature-vis.png" alt="Feature Visualization">
+            <hr style="margin-top:0px">
+            <p class="text-justify">
+              We use PCA to reduce the dimension of the transformed features and visualize the results with RGB color.
+              The visualization for attention weights demonstrate that the features in indistinctive or low-texture regions are able to aggregate local and global context information through self-attention and cross-attention.
+              In the first two examples, the query point from the low-texture region is able to aggregate the surrounding global information flexibly. 
+              For instance, the point on the chair is looking at the edge of the chair. 
+              In the last two examples, the query point from the distinctive region can also utilize the richer information from other regions.
+              The feature visualization with PCA further shows that LoFTR learns a position-dependent feature representation.
+            </p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+
+  <!-- more videos -->
+  <!-- <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>More matching results</h3>
+            <hr style="margin-top:0px">
+            <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="">
+                <source src="images/street_dance.m4v" type="video/mp4">
+            </video>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br> -->
+
+  <!-- citing -->
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Citation</h3>
+          <hr style="margin-top:0px">
+              <pre style="background-color: #e9eeef;padding: 1.25em 1.5em">
+<code>@article{sun2021loftr,
+  title={{LoFTR}: Detector-Free Local Feature Matching with Transformers},
+  author={Sun, Jiaming and Shen, Zehong and Wang, Yuang and Bao, Hujun and Zhou, Xiaowei},
+  journal={CVPR},
+  year={2021}
+}</code></pre>
+          <hr>
+      </div>
+    </div>
+  </div>
+
+  <!-- ack -->
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Acknowledgements</h3>
+          <hr style="margin-top:0px">
+          <p class="text-justify">
+            We would like to specially thank Reviewer 1 for the insightful and constructive comments. 
+            We provide additional responses to Reviewer 1 regarding the naming of this paper in the supplementary material.
+            We would like to thank Sida Peng and Qi Fang for the proof-reading, and Hongcheng Zhao for generating the visualizations.
+          </p>
+          <hr>
+      </div>
+    </div>
+  </div>
+
+  <!-- rec -->
+  <div class="container">
+    <div class="row ">
+      <div class="col-12">
+          <h3>Recommendations to other works from our group</h3>
+          <hr style="margin-top:0px">
+          <p class="text-justify">
+            Welcome to checkout our work on real-time 3D reconstruction (<a href="http://zju3dv.github.io/neuralrecon/">NeuralRecon</a>) and human reconstruction (<a href="http://zju3dv.github.io/neuralbody">NeuralBody</a> and <a href="http://zju3dv.github.io/Mirrored-Human">Mirrored-Human</a>) in CVPR 2021.
+          </p>
+      </div>
+    </div>
+  </div>
+
+  <footer class="text-center" style="margin-bottom:10px; font-size: medium;">
+      <hr>
+      Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the <a href="https://lioryariv.github.io/idr/" target="_blank">website template</a>.
+  </footer>
+
+  <script type="text/javascript">
+    function changePlaybackSpeed(speed)
+        {
+            document.getElementById('inspect_vid').playbackRate = speed;
+        }
+        changePlaybackSpeed(0.25)
+
+    var demo = document.getElementById("demo");
+    var startTime;
+    var timeout = undefined;
+    demo.addEventListener("loadstart", function() {
+      startTime = Date.now();
+      timeout = setTimeout(function () {
+        var demoWarning = document.getElementById("demo-warning");
+        var giteeLink = document.createElement("a");
+        giteeLink.innerText = "mirror hosted in mainland China";
+        giteeLink.href = "https://project-pages-1255496016.cos-website.ap-shanghai.myqcloud.com/loftr/";
+        // var bilibiliLink = document.createElement("a");
+        // var youtubeLink = document.createElement("a");
+        // bilibiliLink.innerText = "BiliBili";
+        // bilibiliLink.href = "";
+        // youtubeLink.innerText = "YouTube";
+        // youtubeLink.href = "";
+
+        demoWarning.append("Loading the videos took too long, you can optionally visit this site in the ", giteeLink, ".");
+        // demoWarning.append("Loading the video took too long, you can optionally watch it on Bilibili", bilibiliLink, " or YouTube", youtubeLink, ".");
+        clearTimeout(timeout);
+        timeout = undefined;
+      }, 6000);
+    });
+    demo.addEventListener("loadeddata", function() {
+      if (timeout) {
+        clearTimeout(timeout);
+        timeout = undefined;
+      }
+    });
+//     var source = document.createElement("source");
+//     source.setAttribute("src", "images/loftr-homepage-demo.mp4");
+//     source.setAttribute("type", "video/webm");
+//     demo.appendChild(source);
+  </script>
+  <script>
+    MathJax = {
+      tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+    };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+</body>
+</html>
+
