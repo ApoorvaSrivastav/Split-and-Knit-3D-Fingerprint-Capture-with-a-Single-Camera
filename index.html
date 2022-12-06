@@ -50,11 +50,11 @@
            <body>
               <div class="row">
                   <div class="column" >
-                      <h4>Apoorva Srivastava</h4>
+                      <h6>Apoorva Srivastava</h6>
                       <p>CVIT Lab, IIIT Hyderabad, India <br> apoorva.srivastava@iiit.ac.in </p>
                   </div>
                   <div class="column" >
-                      <h4>Anoop Namboodiri</h4>
+                      <h6>Anoop Namboodiri</h6>
                       <p>CVIT Lab, IIIT Hyderabad, India <br> anoop@iiit.ac.in </p>
                   </div>
               </div>
@@ -101,7 +101,7 @@
                 <!-- <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/EpmnpwwaR14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
             <!-- </div> -->
                 <img class="img-fluid" src="images/Teaser.png" alt="Teaser">
-            <hr>
+            
           <p class="text-justify">
            3D fingerprint capture is less sensitive to skin moisture levels and avoids skin deformation, which is common in contact-based sensors,
 in addition to capturing depth information. Unfortunately, its adoption is limited due to high cost and system complexity. Photometric stereo provides an opportunity to build low-cost, simple
@@ -161,12 +161,13 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
   </section>
   <br>
 
-  <!-- demo video with orig -->
+  <!-- Reconstruction Steps -->
   <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
             <hr style="margin-top:0px">
+            <h3>Reconstruction Steps</h3>
             <video width="50%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" controls="" id="inspect_vid">
               <source src="images/3D_Fingerprint_Reconstruction.mp4" type="video/mp4">
             </video>
@@ -184,9 +185,6 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
         <div class="col-12 text-center">
             <h3>Output Glimpse</h3>
             <hr style="margin-top:0px">
-            <p class="text-justify">
-              Data is captured using an iPhone, color indicates the match confidence.
-            </p>
             <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" controls="" id="compare_vid">
               <source src="images/Output.mp4" type="video/mp4">
             </video>
@@ -199,22 +197,55 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
   </section>
   <br>
 
-  <!-- feature visualization -->
+  <!-- Results -->
   <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>Visualizations on the attention weights and the transformed features in LoFTR</h3>
+            <h3>Qualitative Comparison</h3>
             <hr style="margin-top:0px">
-            <img class="img-fluid" src="images/feature-vis.png" alt="Feature Visualization">
+            <img class="img-fluid" src="images/Quality-Compare.png" alt="Qualitative Comparison">
             <hr style="margin-top:0px">
             <p class="text-justify">
-              We use PCA to reduce the dimension of the transformed features and visualize the results with RGB color.
-              The visualization for attention weights demonstrate that the features in indistinctive or low-texture regions are able to aggregate local and global context information through self-attention and cross-attention.
-              In the first two examples, the query point from the low-texture region is able to aggregate the surrounding global information flexibly. 
-              For instance, the point on the chair is looking at the edge of the chair. 
-              In the last two examples, the query point from the distinctive region can also utilize the richer information from other regions.
-              The feature visualization with PCA further shows that LoFTR learns a position-dependent feature representation.
+             Qualitative Comparison: a) Comparison of the front view and side view of the phalange point cloud produced by 
+              SnK: (Split-and-Knit), PR: (Partial Result), EA: (Existing Algorithm).
+              The EA considers fingers to be lambertian and reconstructs using grayscale images leading to undetailed fingerprints
+              and distorted global shape. The PR is the intermediate result obtained after reducing the non-lambertian nature before extracting the
+              ridge-valley and adding global shape leading to a detailed fingerprint but distorted global shape. The SnK gives the best result with 
+              a detailed fingerprint and proper global shape. b) Comparison of zoomed ridge-valley point cloud for SnK and EA. SnK retrieves superior
+              quality ridge-valley point cloud.
+            </p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Surface Normal Matching usng LBP features</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="images/ROC_QA_1.png" alt="ROC1">
+            <hr style="margin-top:0px">
+            <p class="text-justify">
+              ROC curves for matching fingerprint surface normals for SnK: Split-and-Knit algorithm,
+              PR: Partial Result after reducing the non-lambertian nature of finger image with the distorted overall shape, 
+              and EA: Existing Algorithms output based on the photometric stereo. 
+              The best ROC curve and 92%TAR @ 0.01FAR are obtained for SnK, displaying its highest reconstruction quality.
+            </p>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Ridge-Valley Point Cloud Matching usng LBP features</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="images/RV_QA_2.png" alt="ROC2">
+            <hr style="margin-top:0px">
+            <p class="text-justify">
+              ROC curves for matching ridge-valley point cloud obtained from SnK: Split-and-Knit algorithm and 
+              EA: Existing Algorithms based on the photometric stereo. The 95% TAR @ 0.01 FAR and 
+              90.5% TAR@0.001 FAR of SnK as opposed to 93% TAR @ 0.01 FAR and 78.8% TAR @ 0.001 FAR of EA proves the high quality
+              of the ridge-valley pattern by SnK.
             </p>
         </div>
       </div>
@@ -238,7 +269,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
   </section>
   <br> -->
 
-  <!-- citing -->
+  <!-- citing >
   <div class="container">
     <div class="row ">
       <div class="col-12">
@@ -256,7 +287,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
     </div>
   </div>
 
-  <!-- ack -->
+  <!-- ack >
   <div class="container">
     <div class="row ">
       <div class="col-12">
@@ -272,7 +303,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
     </div>
   </div>
 
-  <!-- rec -->
+  <!-- rec >
   <div class="container">
     <div class="row ">
       <div class="col-12">
@@ -288,7 +319,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
   <footer class="text-center" style="margin-bottom:10px; font-size: medium;">
       <hr>
       Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the <a href="https://lioryariv.github.io/idr/" target="_blank">website template</a>.
-  </footer>
+  </footer-->
 
   <script type="text/javascript">
     function changePlaybackSpeed(speed)
@@ -297,16 +328,16 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
         }
         changePlaybackSpeed(2)
 
-    var demo = document.getElementById("demo");
-    var startTime;
-    var timeout = undefined;
-    demo.addEventListener("loadstart", function() {
-      startTime = Date.now();
-      timeout = setTimeout(function () {
-        var demoWarning = document.getElementById("demo-warning");
-        var giteeLink = document.createElement("a");
-        giteeLink.innerText = "mirror hosted in mainland China";
-        giteeLink.href = "https://project-pages-1255496016.cos-website.ap-shanghai.myqcloud.com/loftr/";
+    //var demo = document.getElementById("demo");
+    //var startTime;
+    //var timeout = undefined;
+    //demo.addEventListener("loadstart", function() {
+     // startTime = Date.now();
+      //timeout = setTimeout(function () {
+       // var demoWarning = document.getElementById("demo-warning");
+        //var giteeLink = document.createElement("a");
+        //giteeLink.innerText = "mirror hosted in mainland China";
+        //giteeLink.href = "https://project-pages-1255496016.cos-website.ap-shanghai.myqcloud.com/loftr/";
         // var bilibiliLink = document.createElement("a");
         // var youtubeLink = document.createElement("a");
         // bilibiliLink.innerText = "BiliBili";
@@ -314,16 +345,16 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
         // youtubeLink.innerText = "YouTube";
         // youtubeLink.href = "";
 
-        demoWarning.append("Loading the videos took too long, you can optionally visit this site in the ", giteeLink, ".");
+        //demoWarning.append("Loading the videos took too long, you can optionally visit this site in the ", giteeLink, ".");
         // demoWarning.append("Loading the video took too long, you can optionally watch it on Bilibili", bilibiliLink, " or YouTube", youtubeLink, ".");
-        clearTimeout(timeout);
-        timeout = undefined;
-      }, 6000);
-    });
-    demo.addEventListener("loadeddata", function() {
-      if (timeout) {
-        clearTimeout(timeout);
-        timeout = undefined;
+       // clearTimeout(timeout);
+      //  timeout = undefined;
+      //}, 6000);
+    //});
+   // demo.addEventListener("loadeddata", function() {
+    //  if (timeout) {
+      //  clearTimeout(timeout);
+      //  timeout = undefined;
       }
     });
 //     var source = document.createElement("source");
@@ -331,12 +362,12 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
 //     source.setAttribute("type", "video/webm");
 //     demo.appendChild(source);
   </script>
-  <script>
+  <!--script>
     MathJax = {
       tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
     };
     </script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script-->
 </body>
 </html>
 
