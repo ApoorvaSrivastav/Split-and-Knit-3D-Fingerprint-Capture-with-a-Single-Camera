@@ -1,5 +1,4 @@
 # Split-and-Knit-3D-Fingerprint-Capture-with-a-Single-Camera
-Welcome to the project page of Split and Knit Algorithm!!!
 
 3D fingerprint capture is less sensitive to skin moisture levels and avoids skin deformation, which is common in contact-based sensors, in addition to capturing depth information. Unfortunately, its adoption is limited due to high cost and system complexity. Photometric stereo provides an opportunity to build low-cost, simple sensors capable of high-quality $3D$ capture. However, it assumes that the surface being imaged is lambertian and does not work well with non-lambertian surfaces like our fingers.
 
