@@ -186,7 +186,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
             <h3>Output Glimpse</h3>
             <hr style="margin-top:0px">
             <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" controls="" id="compare_vid">
-              <source src="images/Output.mp4" type="video/mp4">
+              <source src="images/Output2.mp4" type="video/mp4">
             </video>
             <!-- <div class="embed-responsive embed-responsive-16by9"> -->
                 <!-- <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/EpmnpwwaR14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
@@ -204,7 +204,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
         <div class="col-12 text-center">
             <h3>Qualitative Comparison</h3>
             <hr style="margin-top:0px">
-            <img class="img-fluid" src="images/Quality-Compare.png" alt="Qualitative Comparison">
+            <img class="img-fluid" src="images/Quality_Compare.png" alt="Qualitative Comparison">
             <hr style="margin-top:0px">
             <p class="text-justify">
              Qualitative Comparison: a) Comparison of the front view and side view of the phalange point cloud produced by 
@@ -246,6 +246,42 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
               EA: Existing Algorithms based on the photometric stereo. The 95% TAR @ 0.01 FAR and 
               90.5% TAR@0.001 FAR of SnK as opposed to 93% TAR @ 0.01 FAR and 78.8% TAR @ 0.001 FAR of EA proves the high quality
               of the ridge-valley pattern by SnK.
+            </p>
+        </div>
+      </div>
+    </div>
+     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>Summary of Matching Experiments</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="images/BarGraph.png" alt="BarGraph">
+            <hr style="margin-top:0px">
+            <p class="text-justify">
+            The above Bar-Graph compares the matching accuracies of SnK: Split-and-Knit algorithm output and EA:Existing Algorithms output
+            based on the photometric stereo. The higher % TAR of SnK over EA for ridge-valley point cloud matching and surface normal matching 
+            for all cases show the higher quality of 3D phalange produced by the SnK.
+            </p>
+        </div>
+      </div>
+    </div>
+     </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center">
+            <h3>3D to 2D fingerprint Conversion</h3>
+            <hr style="margin-top:0px">
+            <img class="img-fluid" src="images/3d_2d.png.png" alt="ROC2">
+            <hr style="margin-top:0px">
+            <p class="text-justify">
+              We tried to prove the high quality of the ridge-valley point cloud by visualizing the ridge-valley point cloud as a range image.
+              Hence, we obtain the 2D fingerprint in a novel way directly from the range image of the ridge-valley point clouds without any
+              image processing on the point cloud. The traditional method to obtain 2D fingerprints from contactless finger images is by following
+              the enhancement and scaling methods. The 2D fingerprint obtained from visualizing the ridge-valley range image appears similar to the 
+              2D fingerprint obtained by processing the contactless fingerprint. It again proves the excellent quality of the 3D reconstruction of the
+              ridge-valley point cloud by SnK. Further, we obtained the enhanced fingerprint using Gabor filter-based enhancement. 
+              Also, obtaining the 2D fingerprints makes the Split-and-Knit algorithm (SnK) compatible with 2D fingerprint matching algorithms.
             </p>
         </div>
       </div>
