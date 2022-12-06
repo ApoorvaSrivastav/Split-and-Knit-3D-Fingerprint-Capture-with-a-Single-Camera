@@ -49,12 +49,12 @@
           
            <body>
               <div class="row">
-                  <div class="column" style="background-color:#6e6e6e;">
-                      <h2>Apoorva Srivastava</h2>
+                  <div class="column" >
+                      <h4>Apoorva Srivastava</h4>
                       <p>CVIT Lab, IIIT Hyderabad, India <br> apoorva.srivastava@iiit.ac.in </p>
                   </div>
-                  <div class="column" style="background-color:#6e6e6e;">
-                      <h2>Anoop Namboodiri</h2>
+                  <div class="column" >
+                      <h4>Anoop Namboodiri</h4>
                       <p>CVIT Lab, IIIT Hyderabad, India <br> anoop@iiit.ac.in </p>
                   </div>
               </div>
@@ -122,7 +122,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>Overview video (10 min)</h3>
+            <h3>Overview </h3>
             <hr style="margin-top:0px">
             <div class="embed-responsive embed-responsive-16by9"> -->
                 <iframe style="clip-path: inset(1px 1px)" width="50%" height="100%" src="https://www.youtube.com/embed/ACB5_S05xrM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
@@ -139,7 +139,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>Pipeline overview</h3>
+            <h3>Pipeline</h3>
             <hr style="margin-top:0px">
             <!-- <div class="embed-responsive embed-responsive-16by9"> -->
                 <!-- <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/EpmnpwwaR14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
@@ -147,7 +147,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
                 <img class="img-fluid" src="images/SplitandKnit.png" alt="Split and Knit pipeline">
             <hr>
             <p class="text-justify">
-              The Split-and-Knit Algorithm(\emph{SnK}) consists of three primary components: (a) Reconstruction pipeline for finger ridge-valley point cloud.
+              The Split-and-Knit Algorithm consists of three primary components: (a) Reconstruction pipeline for finger ridge-valley point cloud.
               The white light images are preprocessed to obtain cropped phalange. Using CLAHE and global-direct component separation by U-Net, 
               the non-lambertian nature of the finger image is reduced. Further, using photometric stereo and shapelet reconstruction, 
               finger ridge-valley point cloud is obtained (b) Reconstruction pipeline for finger shape point cloud. 
@@ -177,18 +177,18 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
   </section>
   <br>  
 
-  <!-- compare -->
+  <!-- Output -->
   <section>
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>Qualitative comparison with <a href="https://psarlin.com/superglue">SuperGlue</a></h3>
+            <h3>Output Glimpse</h3>
             <hr style="margin-top:0px">
             <p class="text-justify">
               Data is captured using an iPhone, color indicates the match confidence.
             </p>
             <video width="100%" playsinline="" autoplay="autoplay" loop="loop" preload="" muted="" controls="" id="compare_vid">
-              <source src="images/loftr_spg_compare.mp4" type="video/mp4">
+              <source src="images/Output.mp4" type="video/mp4">
             </video>
             <!-- <div class="embed-responsive embed-responsive-16by9"> -->
                 <!-- <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/EpmnpwwaR14" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe> -->
@@ -295,7 +295,7 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
         {
             document.getElementById('inspect_vid').playbackRate = speed;
         }
-        changePlaybackSpeed(0.25)
+        changePlaybackSpeed(2)
 
     var demo = document.getElementById("demo");
     var startTime;
