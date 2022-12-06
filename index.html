@@ -31,12 +31,12 @@
             <h4 style="color:#6e6e6e;"> ICVGIP 2022 </h4>
             <hr>
             
-            <p> Apoorva Srivastava, CVIT Lab, IIIT Hyderabad, India
-                Anoop Namboodiri, CVIT Lab, IIIT Hyderabad, India
-             </p>
-            <!-- <p> <a class="btn btn-secondary btn-lg" href="" role="button">Paper</a> 
+            <p> Apoorva Srivastava, CVIT Lab, IIIT Hyderabad, India </p>
+              <p>  Anoop Namboodiri, CVIT Lab, IIIT Hyderabad, India </p>
+             
+            < <p> <a class="btn btn-secondary btn-lg" href="" role="button">Paper</a> 
                 <a class="btn btn-secondary btn-lg" href="" role="button">Code</a> 
-                <a class="btn btn-secondary btn-lg" href="" role="button">Supplementary</a> </p> -->
+                <a class="btn btn-secondary btn-lg" href="" role="button">Supplementary</a> </p> >
 
             <div class="row justify-content-center">
               <div class="column">
@@ -89,10 +89,10 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
     <div class="container">
       <div class="row">
         <div class="col-12 text-center">
-            <h3>Overview video (5 min)</h3>
+            <h3>Overview video (10 min)</h3>
             <hr style="margin-top:0px">
             <div class="embed-responsive embed-responsive-16by9"> -->
-                <iframe style="clip-path: inset(1px 1px)" width="100%" height="100%" src="https://www.youtube.com/embed/ACB5_S05xrM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                <iframe style="clip-path: inset(1px 1px)" width="50%" height="100%" src="https://www.youtube.com/embed/ACB5_S05xrM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
             </div>
         </div>
       </div>
@@ -114,22 +114,13 @@ shape and the ridge-valley point cloud to obtain a 3D finger phalange. The high-
                 <img class="img-fluid" src="images/SplitandKnit.png" alt="Split and Knit pipeline">
             <hr>
             <p class="text-justify">
-              LoFTR has four components:
-              \(\textbf{1.}\) A local feature CNN extracts
-              the coarse-level feature maps 
-              $\tilde{F}^A$ and $\tilde{F}^B$,
-              together with the fine-level feature maps 
-              $\hat{F}^A$ and $\hat{F}^B$
-              from the image pair $I^A$ and $I^B$.
-              \(\textbf{2.}\)  The coarse feature maps are flattened to 1-D vectors and added with the
-              positional encoding.
-              The added features are then processed by the Local Feature TRansformer (LoFTR) module, which has $N_c$ self-attention and cross-attention layers.
-              \(\textbf{3.}\) A differentiable matching layer is used to match the transformed features, which ends up with a confidence matrix $\mathcal{P}_c$. 
-              The matches in $\mathcal{P}_c$ are selected according to the confidence threshold and mutual-nearest-neighbor criteria, 
-              yielding the coarse-level match prediction $\mathcal{M}_c$.
-              \(\textbf{4.}\) For every selected coarse prediction $(\tilde{i}, \tilde{j}) \in \mathcal{M}_c$,
-              a local window with size $w\times w$ is cropped from the fine-level feature map.
-              Coarse matches will be refined within this local window to a sub-pixel level as the final match prediction $\mathcal{M}_f$.
+              The Split-and-Knit Algorithm(\emph{SnK}) consists of three primary components: (a) Reconstruction pipeline for finger ridge-valley point cloud.
+              The white light images are preprocessed to obtain cropped phalange. Using CLAHE and global-direct component separation by U-Net, 
+              the non-lambertian nature of the finger image is reduced. Further, using photometric stereo and shapelet reconstruction, 
+              finger ridge-valley point cloud is obtained (b) Reconstruction pipeline for finger shape point cloud. 
+              The NIR light images are preprocessed to obtain cropped phalange. Further, we apply photometric stereo
+              and Frankot-Chellappa reconstruction to obtain the finger shape point cloud.
+              (c) The phalange point cloud is obtained by pixel-wise addition of the ridge-valley and finger shape point cloud.
             </p>
         </div>
       </div>
